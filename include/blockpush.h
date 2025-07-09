@@ -3,6 +3,7 @@
 
 #include <Zumo32U4.h>
 #include "Motors.h"
+#include "proxsensor.h"
 
 class blockpush {
 public:
@@ -14,20 +15,20 @@ private:
   enum State { ZOEKEN, RAMMEN, STOPPEN };
   State state;
 
+
   // Hardware
   Motors motors;
-  Zumo32U4ProximitySensors proxSensors;
+  ProxSensor proxSensor;
   Zumo32U4ButtonA buttonA;
   Zumo32U4LineSensors lineSensors;
   Zumo32U4Buzzer buzzer;
 
   // Sensorconfiguratie
-  static const uint8_t sensorThreshold = 2;
-  static const uint16_t turnSpeedMax = 400;
-  static const uint16_t turnSpeedMin = 400;
-  static const uint16_t deceleration = 10;
-  static const uint16_t acceleration = 10;
-  static const unsigned long maxRamtijd = 2000;
+  static const uint16_t turnSpeedMax = 200;
+  static const uint16_t turnSpeedMin = 120;        // Lager dan max!
+  static const uint16_t deceleration = 10;         // Kleiner = vloeiender
+  static const uint16_t acceleration = 10;         // Kleiner = vloeiender
+  static const unsigned long maxRamtijd = 3000;   // 15 seconden rammen!
   static const int MAXSNELHEID = 400;
   static const int AANTAL_LIJNSENSOREN = 5;
 
@@ -35,8 +36,6 @@ private:
 
   // Draairichting
   bool senseDir;
-  bool turningLeft;
-  bool turningRight;
 
   // Snelheid en timers
   uint16_t turnSpeed;
@@ -45,10 +44,6 @@ private:
 
   // Eenmalige actie
   bool middenUitgevoerd;
-
-  // Extra detectie voor gecentreerd object
-  int centrumDetectieTeller;
-  static const int nodigAantalCentrums = 3;
 };
 
 #endif
