@@ -25,10 +25,10 @@ private:
 
   // Sensorconfiguratie
   static const uint16_t turnSpeedMax = 200;
-  static const uint16_t turnSpeedMin = 120;        // Lager dan max!
+  static const uint16_t turnSpeedMin = 120;        // Lager dan max
   static const uint16_t deceleration = 10;         // Kleiner = vloeiender
   static const uint16_t acceleration = 10;         // Kleiner = vloeiender
-  static const unsigned long maxRamtijd = 3000;   // 15 seconden rammen!
+  static const unsigned long maxRamtijd = 3000;   // 3 seconden rammen
   static const int MAXSNELHEID = 400;
   static const int AANTAL_LIJNSENSOREN = 5;
 
