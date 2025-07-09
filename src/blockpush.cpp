@@ -22,7 +22,7 @@ void blockpush::setup() {
 
 void blockpush::loop() {
   if (!middenUitgevoerd) {
-    motors.gaNaarMidden(200, 700); // snelheid 100, duur 600ms
+    motors.gaNaarMidden(200, 700); // snelheid 200, duur 700ms
     middenUitgevoerd = true;
   }
 
